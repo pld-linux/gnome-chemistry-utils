@@ -5,18 +5,17 @@
 Summary:	Backend for GNOME chemistry apps
 Summary(pl):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
-Version:	0.2.3
+Version:	0.2.4
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Science
 Source0:	http://savannah.nongnu.org/download/gchemutils/%{name}-%{version}.tar.bz2
-# Source0-md5:	fc60352b19d500326c1a64325399d427
+# Source0-md5:	588c948a73ec62bf6bfb47589a355f5d
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
-BuildRequires:	gtk-doc >= 1.0
 %{?with_gtkglarea:BuildRequires:	gtkglarea-devel >= 1.99.0}
 %{?with_gtkglarea:BuildConflicts:	gtkglext-devel >= 0.6.0}
 %{!?with_gtkglarea:BuildRequires:	gtkglext-devel >= 0.6.0}
@@ -46,7 +45,7 @@ GNOME Chemistry Paint (gchempaint).
 Summary:	Header files for gnome-chemistry-utils library
 Summary(pl):	Pliki nag³ówkowe gnome-chemistry-utils
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Obsoletes:	gcu-lib-devel
 
 %description devel
@@ -62,7 +61,7 @@ do budowania programów u¿ywaj±cych bibliotek gnome-chemistry-utils.
 Summary:	Static gnome-chemistry-utils libraries
 Summary(pl):	Statyczne biblioteki gnome-chemistry-utils
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gnome-chemistry-utils libraries.
@@ -80,7 +79,6 @@ Statyczne biblioteki gnome-chemistry-utils.
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
 	--enable-static
 
