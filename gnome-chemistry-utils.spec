@@ -16,6 +16,8 @@ URL:		http://www.nongnu.org/gchemutils/
 %{!?_with_gtkglarea:BuildRequires:	gtkglext-devel >= 0.6.0}
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libgnomeprint-devel >= 2.0.0
+Obsoletes:	gcu
+Obsoletes:	gcu-lib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -30,23 +32,24 @@ Gnome Chemistry Utils to zestaw klas C++ i widgetów GTK2 zwi±zanych z
 chemi±. Obecnie u¿ywany jest w programach Gnome Crystal (gcrystal) i
 Gnome Chemistry Paint (gchempaint).
 
-%package -n gnome-chemistry-utils-devel
+%package devel
 Summary:	Header files for %{name} library
 Summary(pl):	Pliki nag³ówkowe %{name}
 Group:		X11/Development/Libraries
 Requires:	gnome-chemistry-utils = %{version}
+Obsoletes:	gcu-lib-devel
 
-%description -n gnome-chemistry-utils-devel
+%description devel
 The gnome-chemistry-utils-devel package includes the header files
 necessary for developing programs using the gnome-chemistry-utils
 libraries.
 
-%description -n gnome-chemistry-utils-devel -l pl
+%description devel -l pl
 Pakiet gnome-chemistry-utils-devel zawiera pliki nag³ówkowe niezbêdne
 do budowania programów u¿ywaj±cych bibliotek gnome-chemistry-utils.
 
 %prep
-%setup -q -n gnome-chemistry-utils-%{version}
+%setup -q
 
 %build
 %configure
@@ -58,15 +61,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang gnome-chemistry-utils
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-n gnome-chemistry-utils -p /sbin/ldconfig
-%postun -n gnome-chemistry-utils -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
-%files -f gnome-chemistry-utils.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_datadir}/gchemutils
