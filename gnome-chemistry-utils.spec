@@ -10,6 +10,7 @@ Release:	1
 License:	LGPL
 Group:		X11/Applications/Science
 Source0:	http://savannah.nongnu.org/download/gchemutils/unstable.pkg/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	0be12cb53fad3ccbb70aaa600da34cf7
 URL:		http://www.nongnu.org/gchemutils/
 %{?_with_gtkglarea:BuildRequires:	gtkglarea-devel >= 1.99.0}
 %{?_with_gtkglarea:BuildConflicts:	gtkglext-devel >= 0.6.0}
