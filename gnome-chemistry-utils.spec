@@ -2,8 +2,8 @@
 # Conditional build:
 # _with_gtkglarea	- use gtkglarea instead of gtkglext
 #
-Summary:	Backend for Gnome chemistry apps
-Summary(pl):	Backend dla aplikacji chemicznych Gnome
+Summary:	Backend for GNOME chemistry apps
+Summary(pl):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
 Version:	0.1.3
 Release:	1
@@ -24,14 +24,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1
 
 %description
-The Gnome Chemistry Utils provide C++ classes and GTK2 widgets related
-to chemistry. They are currently used in Gnome Crystal (gcrystal) and
-Gnome Chemistry Paint (gchempaint).
+The GNOME Chemistry Utils provide C++ classes and GTK2 widgets related
+to chemistry. They are currently used in GNOME Crystal (gcrystal) and
+GNOME Chemistry Paint (gchempaint).
 
 %description -l pl
-Gnome Chemistry Utils to zestaw klas C++ i widgetów GTK2 zwi±zanych z
-chemi±. Obecnie u¿ywany jest w programach Gnome Crystal (gcrystal) i
-Gnome Chemistry Paint (gchempaint).
+GNOME Chemistry Utils to zestaw klas C++ i widgetów GTK2 zwi±zanych z
+chemi±. Obecnie u¿ywany jest w programach GNOME Crystal (gcrystal) i
+GNOME Chemistry Paint (gchempaint).
 
 %package devel
 Summary:	Header files for %{name} library
