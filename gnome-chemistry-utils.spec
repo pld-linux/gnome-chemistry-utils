@@ -36,7 +36,7 @@ Gnome Chemistry Paint (gchempaint).
 Summary:	Header files for %{name} library
 Summary(pl):	Pliki nag³ówkowe %{name}
 Group:		X11/Development/Libraries
-Requires:	gnome-chemistry-utils = %{version}
+Requires:	%{name} = %{version}
 Obsoletes:	gcu-lib-devel
 
 %description devel
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gchemutils
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
-%files -n gnome-chemistry-utils-devel
+%files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
