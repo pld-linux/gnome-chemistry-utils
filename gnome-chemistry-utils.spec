@@ -6,7 +6,7 @@ Summary:	Backend for GNOME chemistry apps
 Summary(pl):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
 Version:	0.2.5
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Applications/Science
 Source0:	http://savannah.nongnu.org/download/gchemutils/%{name}-%{version}.tar.bz2
@@ -15,14 +15,14 @@ Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.0.0
+BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 %{?with_gtkglarea:BuildRequires:	gtkglarea-devel >= 1.99.0}
 %{?with_gtkglarea:BuildConflicts:	gtkglext-devel >= 0.6.0}
 %{!?with_gtkglarea:BuildRequires:	gtkglext-devel >= 0.6.0}
-BuildRequires:	libbonoboui-devel >= 2.2.0
-BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnomeprint-devel >= 2.2.0
-BuildRequires:	libgnomeui-devel >= 2.0.0
+BuildRequires:	libbonoboui-devel >= 2.8.1-2
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeprint-devel >= 2.10.0
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libtool
 BuildRequires:	openbabel-devel >= 1.100.2
 Obsoletes:	gcu
@@ -81,7 +81,6 @@ Statyczne biblioteki gnome-chemistry-utils.
 %configure \
 	--with-html-dir=%{_gtkdocdir} \
 	--enable-static
-
 %{__make}
 
 %install
