@@ -5,12 +5,12 @@
 Summary:	Backend for GNOME chemistry apps
 Summary(pl):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
-Version:	0.2.4
+Version:	0.2.5
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Science
 Source0:	http://savannah.nongnu.org/download/gchemutils/%{name}-%{version}.tar.bz2
-# Source0-md5:	588c948a73ec62bf6bfb47589a355f5d
+# Source0-md5:	40aab80476187645e05dabf1ffb3caad
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf
@@ -24,7 +24,7 @@ BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libgnomeprint-devel >= 2.2.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libtool
-BuildRequires:	openbabel-devel >= 1.100.1-2
+BuildRequires:	openbabel-devel >= 1.100.2
 Obsoletes:	gcu
 Obsoletes:	gcu-lib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
