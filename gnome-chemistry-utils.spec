@@ -15,16 +15,20 @@ Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 %{?with_gtkglarea:BuildRequires:	gtkglarea-devel >= 1.99.0}
 %{?with_gtkglarea:BuildConflicts:	gtkglext-devel >= 0.6.0}
 %{!?with_gtkglarea:BuildRequires:	gtkglext-devel >= 0.6.0}
+BuildRequires:	intltool
 BuildRequires:	libbonoboui-devel >= 2.8.1-2
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeprint-devel >= 2.10.0
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	openbabel-devel >= 1.100.2
+BuildRequires:	pkgconfig
 Obsoletes:	gcu
 Obsoletes:	gcu-lib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
