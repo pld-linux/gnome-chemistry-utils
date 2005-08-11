@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with gtkglarea	# use gtkglarea instead of gtkglext
+%bcond_with	gtkglarea	# use gtkglarea instead of gtkglext
 #
 Summary:	Backend for GNOME chemistry apps
 Summary(pl):	Backend dla aplikacji chemicznych GNOME
