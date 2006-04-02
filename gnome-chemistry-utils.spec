@@ -5,13 +5,12 @@
 Summary:	Backend for GNOME chemistry apps
 Summary(pl):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
-Version:	0.2.5
-Release:	2
+Version:	0.6.0
+Release:	1
 License:	LGPL
 Group:		X11/Applications/Science
 Source0:	http://savannah.nongnu.org/download/gchemutils/%{name}-%{version}.tar.bz2
-# Source0-md5:	40aab80476187645e05dabf1ffb3caad
-Patch0:		%{name}-DESTDIR.patch
+# Source0-md5:	46eb14c0f61386f75bd27063b4e905dd
 URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -75,16 +74,15 @@ Statyczne biblioteki gnome-chemistry-utils.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
-%{__aclocal}
+#%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir} \
-	--enable-static
+	--enable-static \
+	--disable-update-databases
 %{__make}
 
 %install
@@ -92,32 +90,42 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	HTMLDIR=%{_gtkdocdir}/%{name}
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+umask 022
+update-mime-database %{_datadir}/mime >/dev/null 2>&1 ||:
+[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
+
+%postun
+/sbin/ldconfig
+if [ $1 = 0 ]; then
+    umask 022
+    update-mime-database %{_datadir}/mime >/dev/null 2>&1
+    [ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%{_libdir}/bonobo/servers/*.server
 %{_datadir}/gchemutils
-%{_datadir}/mime-info/*
+%{_datadir}/mime/packages/gchemutils.xml
+%{_desktopdir}/*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_includedir}/gcu
-%{_libdir}/pkgconfig/*.pc
-%{_gtkdocdir}/%{name}
+%{_includedir}/gchemutils/gcu
+%{_pkgconfigdir}/*.pc
+%{_defaultdocdir}/gchemutils
 
 %files static
 %defattr(644,root,root,755)
