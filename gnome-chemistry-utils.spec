@@ -1,7 +1,3 @@
-#
-# Conditional build:
-%bcond_with	gtkglarea	# use gtkglarea instead of gtkglext
-#
 Summary:	Backend for GNOME chemistry apps
 Summary(pl):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
@@ -12,22 +8,23 @@ Group:		X11/Applications/Science
 Source0:	http://savannah.nongnu.org/download/gchemutils/%{name}-%{version}.tar.bz2
 # Source0-md5:	46eb14c0f61386f75bd27063b4e905dd
 URL:		http://www.nongnu.org/gchemutils/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+#BuildRequires:	chemical-mime-data >= 0.1.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
-%{?with_gtkglarea:BuildRequires:	gtkglarea-devel >= 1.99.0}
-%{?with_gtkglarea:BuildConflicts:	gtkglext-devel >= 0.6.0}
-%{!?with_gtkglarea:BuildRequires:	gtkglext-devel >= 0.6.0}
+BuildRequires:	gtk+2-devel >= 2:2.6.0
+BuildRequires:	gtkglext-devel >= 1.0.0
 BuildRequires:	intltool
-BuildRequires:	libbonoboui-devel >= 2.8.1-2
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeprint-devel >= 2.10.0
-BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libgoffice-devel >= 0.1.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	openbabel-devel >= 1.100.2
+#BuildRequires:	mozilla-devel
+BuildRequires:	openbabel-devel >= 2.0.0
 BuildRequires:	pkgconfig
+BuildRequires:	shared-mime-info >= 0.12
 Obsoletes:	gcu
 Obsoletes:	gcu-lib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,6 +46,13 @@ Summary:	Header files for gnome-chemistry-utils library
 Summary(pl):	Pliki nag³ówkowe gnome-chemistry-utils
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	gnome-vfs2-devel >= 2.10.0-2
+Requires:	gtk+2-devel >= 2:2.6.0
+Requires:	gtkglext-devel >= 1.0.0
+Requires:	libglade2-devel >= 1:2.5.1
+Requires:	libgnomeprint-devel >= 2.10.0
+Requires:	libgoffice-devel >= 0.1.0
+Requires:	openbabel-devel >= 2.0.0
 Obsoletes:	gcu-lib-devel
 
 %description devel
@@ -77,7 +81,7 @@ Statyczne biblioteki gnome-chemistry-utils.
 
 %build
 %{__libtoolize}
-#%{__aclocal}
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
@@ -89,7 +93,7 @@ Statyczne biblioteki gnome-chemistry-utils.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
 
@@ -104,10 +108,10 @@ update-mime-database %{_datadir}/mime >/dev/null 2>&1 ||:
 
 %postun
 /sbin/ldconfig
-if [ $1 = 0 ]; then
-    umask 022
-    update-mime-database %{_datadir}/mime >/dev/null 2>&1
-    [ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
+if [ "$1" = "0" ]; then
+	umask 022
+	update-mime-database %{_datadir}/mime >/dev/null 2>&1
+	[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
 fi
 
 %files -f %{name}.lang
@@ -123,7 +127,7 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_includedir}/gchemutils/gcu
+%{_includedir}/gchemutils
 %{_pkgconfigdir}/*.pc
 %{_defaultdocdir}/gchemutils
 
