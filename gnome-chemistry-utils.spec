@@ -80,9 +80,11 @@ Statyczne biblioteki gnome-chemistry-utils.
 %setup -q
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-static \
