@@ -54,6 +54,7 @@ Requires:	libgnomeprint-devel >= 2.10.0
 Requires:	libgoffice-devel >= 0.1.0
 Requires:	openbabel-devel >= 2.0.0
 Obsoletes:	gcu-lib-devel
+Conflicts:	pkgconfig < 1:0.20
 
 %description devel
 The gnome-chemistry-utils-devel package includes the header files
