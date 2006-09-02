@@ -132,7 +132,7 @@ fi
 %{_libdir}/lib*.la
 %{_includedir}/gchemutils
 %{_pkgconfigdir}/*.pc
-%{_defaultdocdir}/gchemutils
+%{_docdir}/gchemutils
 
 %files static
 %defattr(644,root,root,755)
