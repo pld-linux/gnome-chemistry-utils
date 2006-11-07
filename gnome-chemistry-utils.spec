@@ -124,7 +124,7 @@ fi
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_datadir}/gchemutils
 %{_datadir}/mime/packages/gchemutils.xml
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 
 %files devel
 %defattr(644,root,root,755)
