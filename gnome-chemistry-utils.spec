@@ -1,5 +1,5 @@
 Summary:	Backend for GNOME chemistry apps
-Summary(pl):	Backend dla aplikacji chemicznych GNOME
+Summary(pl.UTF-8):   Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
 Version:	0.6.0
 Release:	1
@@ -36,14 +36,14 @@ The GNOME Chemistry Utils provide C++ classes and GTK2 widgets related
 to chemistry. They are currently used in GNOME Crystal (gcrystal) and
 GNOME Chemistry Paint (gchempaint).
 
-%description -l pl
-GNOME Chemistry Utils to zestaw klas C++ i widgetów GTK2 zwi±zanych z
-chemi±. Obecnie u¿ywany jest w programach GNOME Crystal (gcrystal) i
+%description -l pl.UTF-8
+GNOME Chemistry Utils to zestaw klas C++ i widgetÃ³w GTK2 zwiÄ…zanych z
+chemiÄ…. Obecnie uÅ¼ywany jest w programach GNOME Crystal (gcrystal) i
 GNOME Chemistry Paint (gchempaint).
 
 %package devel
 Summary:	Header files for gnome-chemistry-utils library
-Summary(pl):	Pliki nag³ówkowe gnome-chemistry-utils
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe gnome-chemistry-utils
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-vfs2-devel >= 2.10.0-2
@@ -61,20 +61,20 @@ The gnome-chemistry-utils-devel package includes the header files
 necessary for developing programs using the gnome-chemistry-utils
 libraries.
 
-%description devel -l pl
-Pakiet gnome-chemistry-utils-devel zawiera pliki nag³ówkowe niezbêdne
-do budowania programów u¿ywaj±cych bibliotek gnome-chemistry-utils.
+%description devel -l pl.UTF-8
+Pakiet gnome-chemistry-utils-devel zawiera pliki nagÅ‚Ã³wkowe niezbÄ™dne
+do budowania programÃ³w uÅ¼ywajÄ…cych bibliotek gnome-chemistry-utils.
 
 %package static
 Summary:	Static gnome-chemistry-utils libraries
-Summary(pl):	Statyczne biblioteki gnome-chemistry-utils
+Summary(pl.UTF-8):   Statyczne biblioteki gnome-chemistry-utils
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gnome-chemistry-utils libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki gnome-chemistry-utils.
 
 %prep
