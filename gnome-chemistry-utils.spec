@@ -1,5 +1,5 @@
 Summary:	Backend for GNOME chemistry apps
-Summary(pl.UTF-8):   Backend dla aplikacji chemicznych GNOME
+Summary(pl.UTF-8):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
 Version:	0.6.0
 Release:	1
@@ -43,7 +43,7 @@ GNOME Chemistry Paint (gchempaint).
 
 %package devel
 Summary:	Header files for gnome-chemistry-utils library
-Summary(pl.UTF-8):   Pliki nagłówkowe gnome-chemistry-utils
+Summary(pl.UTF-8):	Pliki nagłówkowe gnome-chemistry-utils
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-vfs2-devel >= 2.10.0-2
@@ -67,7 +67,7 @@ do budowania programów używających bibliotek gnome-chemistry-utils.
 
 %package static
 Summary:	Static gnome-chemistry-utils libraries
-Summary(pl.UTF-8):   Statyczne biblioteki gnome-chemistry-utils
+Summary(pl.UTF-8):	Statyczne biblioteki gnome-chemistry-utils
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
