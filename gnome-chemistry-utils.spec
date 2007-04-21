@@ -1,12 +1,12 @@
 Summary:	Backend for GNOME chemistry apps
 Summary(pl.UTF-8):	Backend dla aplikacji chemicznych GNOME
 Name:		gnome-chemistry-utils
-Version:	0.6.0
+Version:	0.6.5
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Science
-Source0:	http://savannah.nongnu.org/download/gchemutils/%{name}-%{version}.tar.bz2
-# Source0-md5:	46eb14c0f61386f75bd27063b4e905dd
+Source0:	http://savannah.nongnu.org/download/gchemutils/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	493dbb6aea0d3664e7b203337fafe056
 URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -106,25 +106,34 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /sbin/ldconfig
 umask 022
-update-mime-database %{_datadir}/mime >/dev/null 2>&1 ||:
 [ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
 
 %postun
 /sbin/ldconfig
 if [ "$1" = "0" ]; then
 	umask 022
-	update-mime-database %{_datadir}/mime >/dev/null 2>&1
 	[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
 fi
+
+   /usr/lib64/chem-viewer
+   /usr/lib64/mozilla-firefox/plugins/libmozgcu.a
+   /usr/lib64/mozilla-firefox/plugins/libmozgcu.la
+   /usr/lib64/mozilla-firefox/plugins/libmozgcu.so
+   /usr/share/man/man1/gchem3d-viewer.1.gz
+   /usr/share/man/man1/gchemcalc.1.gz
+   /usr/share/man/man1/gchemtable.1.gz
+   /usr/share/man/man3/libgcu.3.gz
+
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/chem-viewer
 %{_datadir}/gchemutils
-%{_datadir}/mime/packages/gchemutils.xml
 %{_desktopdir}/*.desktop
+%{_mandir}/*/*
 
 %files devel
 %defattr(644,root,root,755)
