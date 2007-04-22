@@ -115,16 +115,6 @@ if [ "$1" = "0" ]; then
 	[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
 fi
 
-   /usr/lib64/chem-viewer
-   /usr/lib64/mozilla-firefox/plugins/libmozgcu.a
-   /usr/lib64/mozilla-firefox/plugins/libmozgcu.la
-   /usr/lib64/mozilla-firefox/plugins/libmozgcu.so
-   /usr/share/man/man1/gchem3d-viewer.1.gz
-   /usr/share/man/man1/gchemcalc.1.gz
-   /usr/share/man/man1/gchemtable.1.gz
-   /usr/share/man/man3/libgcu.3.gz
-
-
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
@@ -133,7 +123,7 @@ fi
 %attr(755,root,root) %{_libdir}/chem-viewer
 %{_datadir}/gchemutils
 %{_desktopdir}/*.desktop
-%{_mandir}/*/*
+%{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -141,8 +131,12 @@ fi
 %{_libdir}/lib*.la
 %{_includedir}/gchemutils
 %{_pkgconfigdir}/*.pc
+%{_mandir}/man3/libgcu.3*
 %{_docdir}/gchemutils
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+
+# -n browser-plugin-*
+# /usr/lib64/mozilla-firefox/plugins/libmozgcu.so
