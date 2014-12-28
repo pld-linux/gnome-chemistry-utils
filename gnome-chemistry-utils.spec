@@ -11,7 +11,7 @@ URL:		http://www.nongnu.org/gchemutils/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 #BuildRequires:	chemical-mime-data >= 0.1.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	gtkglext-devel >= 1.0.0
